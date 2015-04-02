@@ -9,6 +9,6 @@ print(wd)
 address = os.path.join(wd, 'address_list.txt')
 
 # output shapefile
-output = os.path.join(wd, 'output')
+output = os.path.join(wd, 'output_geocoder.txt')
 
 geocoder.parse_file(address, output)
