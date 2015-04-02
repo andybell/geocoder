@@ -2,12 +2,14 @@ import os
 from geopy import geocoders
 from osgeo import ogr, osr
 
+
 def geocode(address):
-    g = geocoders.Google()
+    g = geocoders.GoogleV3()
     place, (lat, lng) = g.geocode(address)
     print '%s: %.5f, %.5f' % (place, lat, lng)
     return place, lat, lng
 
+	
 def parse_file(filepath, output_shape):
     # create the shapefile
     drv = ogr.GetDriverByName("ESRI Shapefile")
@@ -45,4 +47,4 @@ def parse_file(filepath, output_shape):
         except:
             print 'Error, skipping address...'
 
-parse_file('addresses_to_geocode', 'my_output')
+parse_file(r'C:\Users\Andy\Documents\geocoder\address_list.txt', 'my_output')
