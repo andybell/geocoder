@@ -43,12 +43,12 @@ class GeocodeAddress(object):
 		"""The source code of the tool."""
 
 		# Get parameters and
-		table = parameters[0].asString()
-		number = parameters[1].asString()
-		street = parameters[2].asString()
-		city = parameters[3].asString()
-		state = parameters[4].asString()
-		zipcode = parameters[5].asString()
+		table = parameters[0].value.exportToString()
+		number = parameters[1].value.exportToString()
+		street = parameters[2].value.exportToString()
+		city = parameters[3].value.exportToString()
+		state = parameters[4].value.exportToString()
+		zipcode = parameters[5].value.exportToString()
 
 		# cursor to loop through attribute table
 
@@ -59,6 +59,4 @@ class GeocodeAddress(object):
 			arcpy.AddMessage(full_address)
 
 			# geocoder.geocode(address)
-
-
-	return
+		return
