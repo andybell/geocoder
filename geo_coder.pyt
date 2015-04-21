@@ -35,6 +35,12 @@ class GeocodeAddress(object):
 
 		zipcode = arcpy.Parameter(displayName="Zip Code", name="zipcode", datatype="Field", parameterType="Optional")
 
+		st_no.parameterDependencies = [table.name]
+		st_name.parameterDependencies = [table.name]
+		city.parameterDependencies = [table.name]
+		state.parameterDependencies = [table.name]
+		zipcode.parameterDependencies = [table.name]
+
 		params = [table, st_no, st_name, city, state, zipcode]
 		return params
 
@@ -43,12 +49,12 @@ class GeocodeAddress(object):
 		"""The source code of the tool."""
 
 		# Get parameters and
-		table = parameters[0].value.exportToString()
-		number = parameters[1].value.exportToString()
-		street = parameters[2].value.exportToString()
-		city = parameters[3].value.exportToString()
-		state = parameters[4].value.exportToString()
-		zipcode = parameters[5].value.exportToString()
+		table = parameters[0].valueAsText
+		number = parameters[1].valueAsText
+		street = parameters[2].valueAsText
+		city = parameters[3].valueAsText
+		state = parameters[4].valueAsText
+		zipcode = parameters[5].valueAsText
 
 		# cursor to loop through attribute table
 
