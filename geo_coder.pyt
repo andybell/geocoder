@@ -58,7 +58,13 @@ class GeocodeAddress(object):
 
 		# cursor to loop through attribute table
 
-		cursor = arcpy.UpdateCursor(table)
+		# cursor = arcpy.UpdateCursor(table) # NOTE: this does not work for text files!!!
+		# most address is in txt files... so this is a huge issue!!!!
+		# next best thing is to just read in the txt file using the csv package
+		# then build address and geocode
+		# then add results to new columns
+		# then display xy (WGS 84 projection) and save???
+
 		for row in cursor:
 			# build address string in csv format
 			full_address = number + " " + street + ", " + city + ", " + state + " " + zipcode
