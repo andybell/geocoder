@@ -44,7 +44,6 @@ class GeocodeAddress(object):
 		params = [table, st_no, st_name, city, state, zipcode]
 		return params
 
-
 	def execute(self, parameters, messages):
 		"""The source code of the tool."""
 
